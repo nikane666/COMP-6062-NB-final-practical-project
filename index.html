@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMP-6062 Final Practical Project</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Link to Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <!-- Link to Vue.js for reactive UI components -->
+    <script src="https://unpkg.com/vue@3.4.31/dist/vue.global.js"></script>
+</head>
+<body>
+    <!-- Header section for student information -->
+    <header>
+        <h1 id="student-info">Niken Bajracharya - 1092758</h1>
+    </header>
+
+    <!-- Main container for the app -->
+    <main id="app" class="container">
+        <!-- Section for displaying a random fact -->
+        <section>
+            <h2>Random Fact</h2>
+            <p>{{ randomFact }}</p>
+            <!-- Button to fetch a new random fact -->
+            <button class="btn btn-primary" @click="getRandomFact">New Fact</button>
+        </section>
+
+        <!-- Section for displaying the current weather -->
+        <section>
+            <h2>Current Weather</h2>
+            <div class="row">
+                <!-- Weather details on the left -->
+                <div class="col-md-6">
+                    <p>City: {{ weather.city }}</p>
+                    <p>Temperature: {{ weather.temperature }}</p>
+                    <p>Wind: {{ weather.wind }}</p>
+                    <p>Description: {{ weather.description }}</p>
+                </div>
+                <!-- Input and button to fetch weather for a specific city on the right -->
+                <div class="col-md-6">
+                    <input type="text" v-model="cityInput" placeholder="Enter city name" class="form-control mb-2">
+                    <button class="btn btn-primary" @click="getWeather(cityInput)">Get Weather</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section for dictionary lookup -->
+        <section>
+            <h2>Dictionary</h2>
+            <div class="row">
+                <!-- Dictionary results on the left -->
+                <div class="col-md-6">
+                    <p>Word: {{ dictionary.word }}</p>
+                    <p>Phonetic: {{ dictionary.phonetic }}</p>
+                    <p>Part of Speech: {{ dictionary.partOfSpeech }}</p>
+                    <p>Definition: {{ dictionary.definition }}</p>
+                </div>
+                <!-- Input and button to look up a word on the right -->
+                <div class="col-md-6">
+                    <input type="text" v-model="wordInput" placeholder="Enter a word" class="form-control mb-2">
+                    <button class="btn btn-primary" @click="getDefinition">Define</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="scripts/app.js"></script>
+</body>
+</html>
